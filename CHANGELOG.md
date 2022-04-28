@@ -10,6 +10,13 @@ internal API changes are not present.
 Main (unreleased)
 -----------------
 
+v0.24.2 (2022-04-28)
+--------------------
+
+### Other changes
+
+- Update version of node_exporter to include additional metrics for osx. (@v-zhuravlev)
+
 v0.24.1 (2022-04-14)
 --------------------
 
