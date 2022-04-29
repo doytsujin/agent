@@ -10,8 +10,47 @@ internal API changes are not present.
 Main (unreleased)
 -----------------
 
+> **BREAKING CHANGES**: This release has breaking changes. Please read entries
+> carefully and consult the [upgrade guide][] for specific instructions.
+
+### Breaking changes
+
+- Traces: Use `rpc.grpc.status_code` attribute to determine
+  span failed in the service graph processor (@rcrowe)
+
+### Features
+
+- Add HTTP endpoints to fetch active instances and targets for the Logs subsystem.
+  (@marctc)
+  
+- (beta) Add support for using windows certificate store for TLS connections. (@mattdurham)
+
+- Grafana Agent Operator: add support for integrations through an `Integration`
+  CRD which is discovered by `GrafanaAgent`. (@rfratto)
+
+- (experimental) Add app agent receiver integration. This depends on integrations-next being enabled
+  via the `integrations-next` feature flag. Use `-enable-features=integrations-next` to use
+  this integration. (@kpelelis, @domas)
+
+- Introduce SNMP exporter integration. (@v-zhuravlev)
+
+- Introduce ebpf exporter v2 integration. (@tpaschalis)
+
+### Enhancements
+
+- integrations-next: Integrations using autoscrape will now autoscrape metrics
+  using in-memory connections instead of connecting to themselves over the
+  network. As a result of this change, the `client_config` field has been
+  removed. (@rfratto)
+
+- `extra-scrape-metrics` can now be enabled with the `--enable-features=extra-scrape-metrics` feature flag. See https://prometheus.io/docs/prometheus/2.31/feature_flags/#extra-scrape-metrics for details. (@rlankfo)
+
 v0.24.2 (2022-04-28)
 --------------------
+
+### Bugfixes
+
+- Added config watcher delay to prevent race condition in cases where scraping service mode has not gracefully exited. (@mattdurham)
 
 ### Other changes
 
